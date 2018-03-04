@@ -13,7 +13,7 @@ spring:
             server:
                 git:
                     uri: https://github.com/nellmedina/jhipster-registry
-                    search-paths: central-config
+                    search-paths: central-config*
                 native:
                     search-locations: file:./central-config
                 prefix: /config
