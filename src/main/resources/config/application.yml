@@ -42,6 +42,7 @@ zuul:
 management:
     security:
         roles: ADMIN
+        enabled: false
     context-path: /management
     health:
         mail:

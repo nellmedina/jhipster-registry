@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -22,6 +24,7 @@ import io.github.jhipster.registry.web.rest.vm.UserVM;
  */
 @RestController
 @RequestMapping("/api")
+@RefreshScope
 public class AccountResource {
 
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);
@@ -37,6 +40,15 @@ public class AccountResource {
     public String isAuthenticated(HttpServletRequest request) {
         log.debug("REST request to check if the current user is authenticated");
         return request.getRemoteUser();
+    }
+
+    @Value("${nell.medina}")
+    private String val;
+
+    @GetMapping("/nell")
+    @Timed
+    public String nell(HttpServletRequest request) {
+        return val;
     }
 
     /**

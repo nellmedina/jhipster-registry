@@ -1,5 +1,13 @@
 FROM openjdk:8-jre-alpine
 
+# do all in one step
+RUN apk upgrade --update && \
+    apk add --update curl unzip && \
+    curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/unlimited_jce_policy.zip "http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip" && \
+    unzip -jo -d ${JAVA_HOME}/lib/security /tmp/unlimited_jce_policy.zip && \
+    apk del curl unzip && \
+    rm -rf /tmp/* /var/cache/apk/*
+
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
     JAVA_OPTS="" \
     JHIPSTER_SLEEP=0
