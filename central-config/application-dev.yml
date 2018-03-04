@@ -20,4 +20,4 @@ logging:
     file: ${spring.application.name}.log
 
 nell:
-    medina: gwapo15
+    medina: gwapo16
