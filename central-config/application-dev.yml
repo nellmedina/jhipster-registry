@@ -20,4 +20,4 @@ logging:
     file: ${spring.application.name}.log
 
 nell:
-    medina: {cipher}d84e0b25418585df01e4e29ec134a7c59f3f71116805cbfe35d46619e7db00d7
+    medina: gwapo17
